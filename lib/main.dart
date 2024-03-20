@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/page/MABPage.dart';
-import 'package:untitled/page/StartPage.dart';
+import 'package:untitled/page/StartPage/StartPage.dart';
 import 'package:untitled/page/ThirdAPage.dart';
-import 'package:untitled/page/ThirdBPage.dart';
+import 'package:untitled/page/ThirdB/ThirdBPage.dart';
 
 void main() {
   runApp(const MyApp());

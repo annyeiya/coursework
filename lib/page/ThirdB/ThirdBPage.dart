@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'Bottons.dart';
+import 'ImageBuilder.dart';
+
+void  _testMethod() {
+  print("hi");
+}
 
 const Map<String, String> imageMap = {
   '1': 'Без_имени',
@@ -25,10 +31,6 @@ class _ThirdBPage extends State<ThirdBPage> {
 
   String? selectedImage = imageMap.keys.first;
 
-  void  _testMethod() {
-    print("hi");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold (
@@ -50,21 +52,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                   const SizedBox(height: 40.0),
                   Row (
                     children: [
-                      Expanded(
-                        flex: 7,
-                        child: InteractiveViewer(
-                          minScale: 1.0,
-                          maxScale: 5.0,
-                          child: SizedBox(
-                              height: MediaQuery.of(context).size.height * 5 / 8,
-                              child: Image.asset(
-                                'assets/img/${imageMap[selectedImage]}.jpg',
-                                key: UniqueKey(),
-                                fit: BoxFit.contain,
-                              )
-                          ),
-                        ),
-                      ),
+                      ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
                       Expanded (
                           flex: 1,
                           child: DropdownButton<String>(
@@ -87,34 +75,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                     ],
                   ),
                   const SizedBox(height: 50.0),
-                  Row (
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/mab');
-                        },
-                        child: Text('ГУК'),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            _testMethod();
-                          },
-                          child: Text('корпус 2')
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            _testMethod();
-                          },
-                          child: Text('ЛК')
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacementNamed('/third_a');
-                          },
-                          child: Text('корпус 3а')
-                      ),
-                    ]),
+                  Buttons(),
                 ]
             ),
           )
