@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Bottons.dart';
 import 'ImageBuilder.dart';
 
 const Map<String, String> imageMap = {
@@ -45,46 +44,40 @@ class _ThirdBPage extends State<ThirdBPage> {
             child: Text('Карта ЮУрГУ')
         ),
       ),
-      body: SingleChildScrollView (
-          child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 40.0),
-                  const Text(
-                    'Вы находитесь в корпусе 3бв',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  const SizedBox(height: 40.0),
-                  Row (
-                    children: [
-                      ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
-                      Expanded (
-                          flex: 1,
-                          child: DropdownButton<String>(
-                            value:selectedImage,
-                            icon: const Icon(Icons.arrow_downward),
-                            elevation: 16,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedImage = newValue!;
-                              });
-                            },
-                            items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          )
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 50.0),
-                  const Buttons(),
-                ]
-            ),
-          )
+      body: Column(
+        children: <Widget>[
+          const SizedBox(height: 40.0),
+          const Text(
+            'Вы находитесь в корпусе 3бв',
+            style: TextStyle(fontSize: 24.0),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 40.0),
+          Row (
+            children: [
+              ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
+              Expanded (
+                  flex: 1,
+                  child: DropdownButton<String>(
+                    value:selectedImage,
+                    icon: const Icon(Icons.arrow_downward),
+                    elevation: 16,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedImage = newValue!;
+                      });
+                    },
+                    items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  )
+              )
+            ],
+          ),
+        ]
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Bottons.dart';
+import 'DrawerButtons.dart';
 import 'ImageBuilder.dart';
 import 'SearchScreen.dart';
 
@@ -27,6 +27,8 @@ class _StartPage extends State<StartPage> {
         const HomeScreen(),
         const SearchScreen(),
       ][currentPageIndex],
+
+      drawer: const DrawerButtons(),
 
       bottomNavigationBar: NavigationBar (
         onDestinationSelected: (int index) {
@@ -59,23 +61,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView (
-        child: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 20.0),
-                Text(
-                  'Добро пожаловать',
-                  style: TextStyle(fontSize: 24.0),
-                ),
-                SizedBox(height: 40.0),
-                ImageBuilder(),
-                SizedBox(height: 50.0),
-                Buttons(),
-              ]
-          ),
-        )
+    return const Column(
+      children: <Widget>[
+        SizedBox(height: 40.0),
+        Text(
+          'Добро пожаловать',
+          style: TextStyle(fontSize: 24.0),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 40.0),
+        ImageBuilder(),
+      ]
     );
   }
 }
