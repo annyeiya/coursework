@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'Bottons.dart';
 import 'ImageBuilder.dart';
-
-void  _testMethod() {
-  print("hi");
-}
 
 const Map<String, String> imageMap = {
   '1': 'Без_имени',
@@ -22,14 +19,23 @@ const Map<String, String> imageMap = {
 };
 
 class ThirdBPage extends StatefulWidget {
-  const ThirdBPage({super.key});
+  const ThirdBPage({super.key, this.selectedImage});
+
+  final String? selectedImage;
+
   @override
   State<ThirdBPage> createState() => _ThirdBPage();
 }
 
 class _ThirdBPage extends State<ThirdBPage> {
 
-  String? selectedImage = imageMap.keys.first;
+  String? selectedImage;
+
+  @override
+  void initState () {
+    super.initState();
+    selectedImage = widget.selectedImage ?? imageMap.keys.first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +81,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                     ],
                   ),
                   const SizedBox(height: 50.0),
-                  Buttons(),
+                  const Buttons(),
                 ]
             ),
           )
