@@ -18,10 +18,9 @@ class _StartPage extends State<StartPage> {
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Center (
-            child: Text('Карта ЮУрГУ')
+        title: const Text('Карта ЮУрГУ'),
+        centerTitle: true,
         ),
-      ),
 
       body: [
         const HomeScreen(),
@@ -44,11 +43,11 @@ class _StartPage extends State<StartPage> {
           NavigationDestination(
             selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: 'карта',
           ),
           NavigationDestination(
             icon: Icon(Icons.search),
-            label: 'search',
+            label: 'поиск',
           ),
         ],
       )
@@ -61,17 +60,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: <Widget>[
-        SizedBox(height: 40.0),
-        Text(
-          'Добро пожаловать',
-          style: TextStyle(fontSize: 24.0),
-          textAlign: TextAlign.center,
-        ),
-        SizedBox(height: 40.0),
-        ImageBuilder(),
-      ]
+    return const SingleChildScrollView (
+      child: Column (
+        children: [
+          SizedBox(height: 40.0),
+          Text(
+            'Добро пожаловать',
+            style: TextStyle(fontSize: 24.0),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 40.0),
+          ImageBuilder(),
+        ]
+      ),
     );
   }
 }

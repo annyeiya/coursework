@@ -33,12 +33,13 @@ class _MABPage extends State<MABPage> {
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Center (
-            child: Text('Карта ЮУрГУ')
+        title: const Text('Карта ЮУрГУ'),
+        centerTitle: true,
         ),
-      ),
-      body: Column(
-        children: <Widget>[
+
+      body: SingleChildScrollView (
+        child: Column(
+        children: [
           const SizedBox(height: 40.0),
           const Text(
             'Вы находитесь в главном корпусе',
@@ -85,6 +86,7 @@ class _MABPage extends State<MABPage> {
             ],
           ),
        ]
+      ),
   ),
 );
   }

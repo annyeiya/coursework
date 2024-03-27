@@ -27,20 +27,22 @@ class _ThirdAPage extends State<ThirdAPage> {
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Center (
-            child: Text('Карта ЮУрГУ')
+        title: const Text('Карта ЮУрГУ'),
+        centerTitle: true,
         ),
-      ),
-      body: Column(
-        children: <Widget>[
-          const SizedBox(height: 40.0),
-          const Text(
-            'Вы находитесь в корпусе 3а',
-            style: TextStyle(fontSize: 24.0),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 40.0),
-          Row (
+
+      body: //SingleChildScrollView (
+      //  child: Column(
+      //   children: [
+      //     const SizedBox(height: 40.0),
+      //     const Text(
+      //       'Вы находитесь в корпусе 3а',
+      //       style: TextStyle(fontSize: 24.0),
+      //       textAlign: TextAlign.center,
+      //     ),
+      //     const SizedBox(height: 40.0),
+          Center (
+          child: Row (
             children: [
               Expanded(
                 flex: 7,
@@ -78,8 +80,9 @@ class _ThirdAPage extends State<ThirdAPage> {
               )
             ],
           ),
-        ]
-    ),
-  );
+    //     ]
+    //   ),
+    // ),
+          ));
   }
 }

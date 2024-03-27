@@ -31,6 +31,7 @@ class _SearchScreen extends State<SearchScreen> {
       children: [
         Row(
           children: [
+            const SizedBox(width: 30),
             Expanded(
               child: TextField(
                 controller: _classroom,
@@ -44,6 +45,7 @@ class _SearchScreen extends State<SearchScreen> {
                 decoration: const InputDecoration(labelText: 'Корпус',),
               ),
             ),
+            const SizedBox(width: 30),
           ],
         ),
         ElevatedButton(
