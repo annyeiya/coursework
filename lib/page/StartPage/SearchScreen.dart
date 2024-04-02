@@ -48,7 +48,8 @@ class _SearchScreen extends State<SearchScreen> {
             const SizedBox(width: 30),
           ],
         ),
-        ElevatedButton(
+        const SizedBox(height: 20),
+        TextButton (
           onPressed: () {
             String buildNumb = _buildnumber.text.toLowerCase();
             int? classroom = int.tryParse(_classroom.text);
@@ -73,7 +74,8 @@ class _SearchScreen extends State<SearchScreen> {
           },
           child: const Text('Найти'),
         ),
-        Row(
+        Row (
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               warning,

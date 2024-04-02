@@ -10,7 +10,7 @@ class DrawerButtons extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             const SizedBox(
-              height: 88,
+              height: 120,
               child: DrawerHeader(
                 decoration: BoxDecoration(color: Color.fromARGB(255, 200, 155, 250)),
                 child: Text (

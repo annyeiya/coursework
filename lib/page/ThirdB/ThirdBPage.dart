@@ -5,7 +5,7 @@ import 'ImageBuilder.dart';
 const Map<String, String> imageMap = {
   '1': 'Без_имени',
   '2': 'пригодится',
-  '3': 'пригодится',
+  '3': '3-3б',
   '4': 'пригодится',
   '5': 'пригодится',
   '6': 'пригодится',
@@ -13,8 +13,6 @@ const Map<String, String> imageMap = {
   '8': 'пригодится',
   '9': 'пригодится',
   '10': 'пригодится',
-  '11': 'пригодится',
-  '12': 'пригодится',
 };
 
 class ThirdBPage extends StatefulWidget {
@@ -40,44 +38,41 @@ class _ThirdBPage extends State<ThirdBPage> {
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Text('Карта ЮУрГУ'),
+        title: const Text('Корпус 3бв'),
         centerTitle: true,
         ),
 
       body: SingleChildScrollView (
         child: Column(
           children: [
-            const SizedBox(height: 40.0),
-            const Text(
-              'Вы находитесь в корпусе 3бв',
-              style: TextStyle(fontSize: 24.0),
-              textAlign: TextAlign.center,
+            const SizedBox(height: 60.0),
+            Center (
+              child: Container (
+                height: 30,
+                width: 50,
+                // color: const Color.fromARGB(255, 200, 155, 250),
+                child: DropdownButton<String>(
+                  value: selectedImage,
+                  icon: const Icon(Icons.keyboard_arrow_right_outlined),
+                  elevation: 18,
+                  isExpanded: true,
+                  iconSize: 24,
+                  style: const TextStyle(color: Colors.black ,fontSize: 20.0),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedImage = newValue!;
+                    });
+                  },
+                  items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
-            const SizedBox(height: 40.0),
-            Row (
-              children: [
-                ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
-                Expanded (
-                    flex: 1,
-                    child: DropdownButton<String>(
-                      value:selectedImage,
-                      icon: const Icon(Icons.arrow_downward),
-                      elevation: 16,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          selectedImage = newValue!;
-                        });
-                      },
-                      items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    )
-                )
-              ],
-            ),
+            ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
             const SizedBox(height: 40.0),
           ]
         ),
