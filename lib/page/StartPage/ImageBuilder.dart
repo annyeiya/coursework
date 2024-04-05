@@ -7,7 +7,7 @@ class ImageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = MediaQuery.of(context);
-    final nav = Navigator.of(context);
+
 
     return OrientationBuilder (
       builder: (context, orientation) {
@@ -24,33 +24,35 @@ class ImageBuilder extends StatelessWidget {
                       fit: BoxFit.contain,
                     )
                 ),
-                Positioned( /// 3бв
-                  left: theme.orientation == Orientation.portrait ? 55 : 35,
-                  top: theme.orientation == Orientation.portrait ? 300 : 145,
-                  child: GestureDetector (
-                    onTap: () => nav.pushNamed('/third_b'),
-                    child: Container (
-                      width: theme.orientation == Orientation.portrait ? 30 : 15,
-                      height: theme.orientation == Orientation.portrait ? 80 : 55,
-                      color: Colors.amber,
-                    ),
-                  ),
-                ),
-                Positioned( /// 3а
-                  left: theme.orientation == Orientation.portrait ? 85 : 45,
-                  top: theme.orientation == Orientation.portrait ? 300 : 145,
-                  child: GestureDetector (
-                    onTap: () => nav.pushNamed('/third_a'),
-                    child: Container (
-                      width: theme.orientation == Orientation.portrait ? 70 : 60,
-                      height: theme.orientation == Orientation.portrait ? 30 : 20,
-                      color: Colors.transparent, //c
-                    ),
-                  ),
-                ),
+                building(context, '/third_b', 55, 300, 30, 80, 35, 145, 15, 55),
+
+                building(context, '/third_a', 85, 300, 70, 30, 45, 145, 60, 20)
+
               ]),
           ),
         );
      });
+  }
+
+  Widget building (BuildContext context, String number,
+  double vLeft, double vTop, double vWeidth, double vHeight,
+  double gLeft, double gTop, double gWeidth, double gHeight,
+  {Color color = Colors.transparent}) {
+
+    final theme = MediaQuery.of(context);
+    final nav = Navigator.of(context);
+
+    return Positioned(
+      left: theme.orientation == Orientation.portrait ? vLeft : gLeft,
+      top: theme.orientation == Orientation.portrait ? vTop : gTop,
+      child: GestureDetector (
+        onTap: () => nav.pushNamed(number),
+        child: Container (
+          width: theme.orientation == Orientation.portrait ? vWeidth : gWeidth,
+          height: theme.orientation == Orientation.portrait ? vHeight : gHeight,
+          color: color,
+        ),
+      ),
+    );
   }
 }

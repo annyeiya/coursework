@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => const StartPage(),
-          '/third_b': (context) => const ThirdBPage(),
+          '/third_b': (context) => ThirdBPage(),
           '/third_a': (context) => const ThirdAPage(),
           '/mab': (context) => const MABPage(),
         }

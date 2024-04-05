@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/Building.dart';
 import 'ImageBuilder.dart';
 
-const Map<String, String> imageMap = {
-  '1': 'Без_имени',
-  '2': 'пригодится',
-  '3': '3-3б',
-  '4': 'пригодится',
-  '5': 'пригодится',
-  '6': 'пригодится',
-  '7': 'пригодится',
-  '8': 'пригодится',
-  '9': 'пригодится',
-  '10': 'пригодится',
-};
 
 class ThirdBPage extends StatefulWidget {
-  const ThirdBPage({super.key, this.selectedImage});
+  ThirdBPage({super.key, this.selectedImage});
 
+  final Map<String, String> imageMap = Building.thirdB;
   final String? selectedImage;
 
   @override
@@ -26,11 +16,13 @@ class ThirdBPage extends StatefulWidget {
 
 class _ThirdBPage extends State<ThirdBPage> {
 
+  late final Map<String, String> imageMap;
   String? selectedImage;
 
   @override
   void initState () {
     super.initState();
+    imageMap = widget.imageMap;
     selectedImage = widget.selectedImage ?? imageMap.keys.first;
   }
 
@@ -54,10 +46,10 @@ class _ThirdBPage extends State<ThirdBPage> {
                 child: DropdownButton<String>(
                   value: selectedImage,
                   icon: const Icon(Icons.keyboard_arrow_right_outlined),
-                  elevation: 18,
+                  underline: Container(height: 0,),
                   isExpanded: true,
                   iconSize: 24,
-                  style: const TextStyle(color: Colors.black ,fontSize: 20.0),
+                  style: const TextStyle(color: Colors.black, fontSize: 20.0),
                   onChanged: (String? newValue) {
                     setState(() {
                       selectedImage = newValue!;
