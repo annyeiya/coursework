@@ -64,6 +64,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                 ),
               ),
             ),
+            const SizedBox(height: 40.0),
             ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
             const SizedBox(height: 40.0),
           ]

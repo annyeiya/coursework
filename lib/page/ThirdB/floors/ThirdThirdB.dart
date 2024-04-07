@@ -9,26 +9,25 @@ class ThirdThirdB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = MediaQuery.of(context);
 
     return OrientationBuilder (
       builder: (BuildContext context, Orientation orientation) {
        return Stack(
         children: [
           SizedBox(
-            height: theme.size.height * 5 / 8,
+            width: MediaQuery.of(context).size.width,
             child: Image.asset(
-              'assets/img/$selectedImage.jpg',
-              key: UniqueKey(),
-              fit: BoxFit.contain,
+                'assets/img/$selectedImage.jpg',
+                key: UniqueKey(),
+                fit: BoxFit.fitWidth,
             ),
           ),
 
           ///здесь настраиваются кнопки для аудиторий
 
-          Classroom.classroom(context, '323', 165, 185, 22, 80, 195, 30, 25, 90),
+          Classroom.classroom(context, '323', 0.36, 0.08, 0.06, 0.07),
 
-          Classroom.classroom(context, '330', 115, 290, 50, 75, 135, 155, 60, 90, color: Colors.amber),
+          Classroom.classroom(context, '330', 0.25, 0.18, 0.12, 0.07),
 
         ]);
     });

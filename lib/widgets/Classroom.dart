@@ -3,20 +3,19 @@ import 'package:flutter/material.dart';
 class Classroom {
 
   static Widget classroom(BuildContext context, String number,
-      double vLeft, double vTop, double vWeidth, double vHeight,
-      double gLeft, double gTop, double gWeidth, double gHeight,
-      {Color color = Colors.transparent}) {
+      double left, double top, double weidth, double height,
+      {Color color = Colors.amber}) { //transparent
 
     final theme = MediaQuery.of(context);
     
     return Positioned(
-      left: theme.orientation == Orientation.portrait ? vLeft : gLeft,
-      top: theme.orientation == Orientation.portrait ? vTop : gTop,
+      left: theme.orientation == Orientation.portrait ? theme.size.shortestSide * left : theme.size.longestSide * left,
+      top: theme.orientation == Orientation.portrait ? theme.size.shortestSide * top : theme.size.longestSide * top,
       child: GestureDetector(
         onTap: () => _tapOn(context, number),
         child: Container(
-          width: theme.orientation == Orientation.portrait ? vWeidth : gWeidth,
-          height: theme.orientation == Orientation.portrait ? vHeight : gHeight,
+          width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * weidth : theme.size.longestSide * weidth,
+          height: theme.orientation == Orientation.portrait ? theme.size.shortestSide * height : theme.size.longestSide * height,
           color: color,
         ),
       ),

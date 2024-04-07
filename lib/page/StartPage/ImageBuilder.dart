@@ -14,22 +14,21 @@ class ImageBuilder extends StatelessWidget {
         return InteractiveViewer(
           minScale: 1.0,
           maxScale: 5.0,
-          child: Center (
-             child: Stack (
+          child: Stack (
               children: [
                 SizedBox(
-                    height: theme.size.height * 5 / 8,
-                    child: Image.asset(
-                      selectedImage,
-                      fit: BoxFit.contain,
-                    )
+                  width: theme.size.width,
+                  child: Image.asset(
+                    selectedImage,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
-                building(context, '/third_b', 55, 300, 30, 80, 35, 145, 15, 55),
+                building(context, '/third_b', 0.1, 0.54, 0.07, 0.2, 0.1, 0.54, 0.07, 0.2),
 
-                building(context, '/third_a', 85, 300, 70, 30, 45, 145, 60, 20)
+                //building(context, '/third_a', 85, 300, 70, 30, 45, 145, 60, 20)
 
               ]),
-          ),
+
         );
      });
   }
@@ -37,19 +36,20 @@ class ImageBuilder extends StatelessWidget {
   Widget building (BuildContext context, String number,
   double vLeft, double vTop, double vWeidth, double vHeight,
   double gLeft, double gTop, double gWeidth, double gHeight,
-  {Color color = Colors.transparent}) {
+  {Color color = Colors.amber}) {
 
     final theme = MediaQuery.of(context);
     final nav = Navigator.of(context);
 
     return Positioned(
-      left: theme.orientation == Orientation.portrait ? vLeft : gLeft,
-      top: theme.orientation == Orientation.portrait ? vTop : gTop,
-      child: GestureDetector (
+      left: theme.orientation == Orientation.portrait ? theme.size.shortestSide * vLeft : theme.size.longestSide * gLeft,
+      top: theme.orientation == Orientation.portrait ? theme.size.shortestSide * vTop : theme.size.longestSide * gTop,
+      child: GestureDetector(
         onTap: () => nav.pushNamed(number),
-        child: Container (
-          width: theme.orientation == Orientation.portrait ? vWeidth : gWeidth,
-          height: theme.orientation == Orientation.portrait ? vHeight : gHeight,
+        child: Container(
+          width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * vWeidth : theme.size.longestSide * gWeidth,
+          height: theme.orientation == Orientation.portrait ? theme.size.shortestSide * vHeight : theme.size.longestSide * gHeight,
+
           color: color,
         ),
       ),

@@ -15,8 +15,7 @@ class ImageBuilder extends StatelessWidget {
     return InteractiveViewer(
       minScale: 1.0,
       maxScale: 5.0,
-      child: Center(
-        child: Builder(builder: (BuildContext context) {
+      child: Builder(builder: (BuildContext context) {
           switch (selectedImage) {
             case "3":
               return ThirdThirdB(selectedImage: imageMap[selectedImage]);
@@ -25,6 +24,6 @@ class ImageBuilder extends StatelessWidget {
               //TODO default is only for this work, must be default:Center(); do all case
           }
         }),
-    ));
+    );
   }
 }
