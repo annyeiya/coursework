@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class Classroom {
 
   static Widget classroom(BuildContext context, String number,
-      double left, double top, double weidth, double height,
-      {Color color = Colors.amber}) { //transparent
+      double left, double top, double width, double height,
+      {Color color = Colors.transparent}) { //transparent
 
     final theme = MediaQuery.of(context);
     
@@ -14,9 +14,15 @@ class Classroom {
       child: GestureDetector(
         onTap: () => _tapOn(context, number),
         child: Container(
-          width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * weidth : theme.size.longestSide * weidth,
+          width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * width : theme.size.longestSide * width,
           height: theme.orientation == Orientation.portrait ? theme.size.shortestSide * height : theme.size.longestSide * height,
           color: color,
+          // child: Column(
+          //   children: [
+          //     SizedBox(height: theme.size.width * 0.01),
+          //     Text('325', style: TextStyle(),),
+          //     Icon (Icons.laptop, size: theme.size.width * 0.02,),
+          // ]),
         ),
       ),
     );
@@ -48,4 +54,27 @@ class Classroom {
           ),
     );
   }
+
+  static Widget building (BuildContext context, String number,
+      double left, double top, double width, double height,
+      {Color color = Colors.transparent}) {
+
+    final theme = MediaQuery.of(context);
+    final nav = Navigator.of(context);
+
+    return Positioned(
+      left: theme.orientation == Orientation.portrait ? theme.size.shortestSide * left : theme.size.longestSide * left,
+      top: theme.orientation == Orientation.portrait ? theme.size.shortestSide * top : theme.size.longestSide * top,
+      child: GestureDetector(
+        onTap: () => nav.pushNamed(number),
+        child: Container(
+          width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * width : theme.size.longestSide * width,
+          height: theme.orientation == Orientation.portrait ? theme.size.shortestSide * height : theme.size.longestSide * height,
+
+          color: color,
+        ),
+      ),
+    );
+  }
+
 }

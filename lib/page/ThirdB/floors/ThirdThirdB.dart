@@ -25,9 +25,11 @@ class ThirdThirdB extends StatelessWidget {
 
           ///здесь настраиваются кнопки для аудиторий
 
-          Classroom.classroom(context, '323', 0.36, 0.08, 0.06, 0.07),
+          Classroom.classroom(context, '323', 0.36, 0.22, 0.06, 0.07),
 
-          Classroom.classroom(context, '330', 0.25, 0.18, 0.12, 0.07),
+          Classroom.classroom(context, '330', 0.25, 0.32, 0.115, 0.07),
+
+          Classroom.classroom(context, '323', 0.42, 0.22, 0.06, 0.07),
 
         ]);
     });

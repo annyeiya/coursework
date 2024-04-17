@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-
 class Building {
+  static const String start = 'assets/img/вся_карта.jpg';
+
   static final Map<String, String> thirdB = {
     '1': 'Без_имени',
     '2': 'пригодится',
