@@ -1,4 +1,9 @@
 class Building {
+  static final Map<String, String> jsonFiles = {
+    'start' : "start",
+    '3б' : "ThirdB"
+ };
+
   static const String start = 'assets/img/вся_карта.jpg';
 
   static final Map<String, String> thirdB = {

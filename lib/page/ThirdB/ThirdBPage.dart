@@ -5,10 +5,9 @@ import 'ImageBuilder.dart';
 
 
 class ThirdBPage extends StatefulWidget {
-  ThirdBPage({super.key, this.selectedImage});
+  const ThirdBPage({super.key, this.numberFloor});
 
-  final Map<String, String> imageMap = Building.thirdB;
-  final String? selectedImage;
+  final String? numberFloor;
 
   @override
   State<ThirdBPage> createState() => _ThirdBPage();
@@ -16,14 +15,14 @@ class ThirdBPage extends StatefulWidget {
 
 class _ThirdBPage extends State<ThirdBPage> {
 
-  late final Map<String, String> imageMap;
-  String? selectedImage;
+  final Map<String, String> imageMap = Building.thirdB;
+  String? numberFloor;
+  final String? jsonFile = Building.jsonFiles['3б'];
 
   @override
   void initState () {
     super.initState();
-    imageMap = widget.imageMap;
-    selectedImage = widget.selectedImage ?? imageMap.keys.first;
+    numberFloor = widget.numberFloor ?? imageMap.keys.first;
   }
 
   @override
@@ -44,7 +43,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                 width: 50,
                 // color: const Color.fromARGB(255, 200, 155, 250),
                 child: DropdownButton<String>(
-                  value: selectedImage,
+                  value: numberFloor,
                   icon: const Icon(Icons.keyboard_arrow_right_outlined),
                   underline: Container(height: 0,),
                   isExpanded: true,
@@ -52,7 +51,7 @@ class _ThirdBPage extends State<ThirdBPage> {
                   style: const TextStyle(color: Colors.black, fontSize: 20.0),
                   onChanged: (String? newValue) {
                     setState(() {
-                      selectedImage = newValue!;
+                      numberFloor = newValue!;
                     });
                   },
                   items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
@@ -65,7 +64,7 @@ class _ThirdBPage extends State<ThirdBPage> {
               ),
             ),
             const SizedBox(height: 40.0),
-            ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
+            ImageBuilder(numberFloor: numberFloor, imageMap: imageMap, jsonFile: jsonFile,),
             const SizedBox(height: 40.0),
           ]
         ),

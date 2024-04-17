@@ -60,16 +60,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView (
+    return SingleChildScrollView (
       child: Column (
         children: [
-          SizedBox(height: 40.0),
-          Text(
+          const SizedBox(height: 40.0),
+          const Text(
             'Добро пожаловать',
             style: TextStyle(fontSize: 24.0),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 40.0),
           ImageBuilder(),
         ]
       ),

@@ -1,39 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/widgets/Building.dart';
 
-import '../../widgets/Classroom.dart';
+import 'Buttons.dart';
 
 class ImageBuilder extends StatelessWidget {
-  const ImageBuilder({super.key});
+  ImageBuilder({super.key});
   final String selectedImage = Building.start;
+  final String? jsonFile = Building.jsonFiles['start'];
+
+  Future<List<Widget>> getButtons(BuildContext context) async {
+    List<Buttons> building = await Buttons.getButtonsFromJson(context, jsonFile!);
+    List<Widget> buttonsWidgets = building.map((building) =>
+        Buttons.building(context, building)).toList();
+    return buttonsWidgets;
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = MediaQuery.of(context);
 
+    return InteractiveViewer(
+      minScale: 1.0,
+      maxScale: 5.0,
+      child: FutureBuilder<List<Widget>>(
+        future: getButtons(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return OrientationBuilder(
+                builder: (BuildContext context, Orientation orientation) {
+                  return Stack(
+                      children: [
+                        SizedBox(
+                          width: theme.size.width,
+                          child: Image.asset(
+                            selectedImage,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
 
-    return OrientationBuilder (
-      builder: (context, orientation) {
-        return InteractiveViewer(
-          minScale: 1.0,
-          maxScale: 5.0,
-          child: Stack (
-              children: [
-                SizedBox(
-                  width: theme.size.width,
-                  child: Image.asset(
-                    selectedImage,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-                Classroom.building(context, '/third_b', 0.1, 0.54, 0.07, 0.2),
+                        ...snapshot.data!,
 
-                //building(context, '/third_a', 85, 300, 70, 30, 45, 145, 60, 20)
-
-              ]),
-
-        );
-     });
+                      ]);
+                });
+            }
+          } else {
+            return const CircularProgressIndicator();
+          }
+        }),
+    );
   }
-
 }

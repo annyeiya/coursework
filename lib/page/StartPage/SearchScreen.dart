@@ -93,7 +93,7 @@ void searcher(BuildContext context,int classroom, String buildNumb) {
   switch (buildNumb) {
     case '3бв':
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ThirdBPage(selectedImage: room)),
+        MaterialPageRoute(builder: (context) => ThirdBPage(numberFloor: room)),
       );
       break;
   }

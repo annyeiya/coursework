@@ -1,0 +1,37 @@
+{
+  "1": [],
+  "2": [],
+  "3": [
+    {
+      "number": "323",
+      "left": 0.36,
+      "top": 0.22,
+      "width": 0.06,
+      "height": 0.07,
+      "describe": "describe from 323"
+    },
+    {
+      "number": "330",
+      "left": 0.25,
+      "top": 0.32,
+      "width": 0.115,
+      "height": 0.07,
+      "describe": "describe from 330"
+    },
+    {
+      "number": "325",
+      "left": 0.42,
+      "top": 0.22,
+      "width": 0.06,
+      "height": 0.07,
+      "describe": "describe from 325"
+    }
+  ],
+  "4": [],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [],
+  "9": [],
+  "10": []
+}
