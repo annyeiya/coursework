@@ -1,84 +1,73 @@
 import 'package:flutter/material.dart';
-import 'Bottons.dart';
+
+import '../../widgets/Building.dart';
 import 'ImageBuilder.dart';
 
-void  _testMethod() {
-  print("hi");
-}
-
-const Map<String, String> imageMap = {
-  '1': 'Без_имени',
-  '2': 'пригодится',
-  '3': 'пригодится',
-  '4': 'пригодится',
-  '5': 'пригодится',
-  '6': 'пригодится',
-  '7': 'пригодится',
-  '8': 'пригодится',
-  '9': 'пригодится',
-  '10': 'пригодится',
-  '11': 'пригодится',
-  '12': 'пригодится',
-};
 
 class ThirdBPage extends StatefulWidget {
-  const ThirdBPage({super.key});
+  const ThirdBPage({super.key, this.numberFloor});
+
+  final String? numberFloor;
+
   @override
   State<ThirdBPage> createState() => _ThirdBPage();
 }
 
 class _ThirdBPage extends State<ThirdBPage> {
 
-  String? selectedImage = imageMap.keys.first;
+  final Map<String, String> imageMap = Building.thirdB;
+  String? numberFloor;
+  final String? jsonFile = Building.jsonFiles['3б'];
+
+  @override
+  void initState () {
+    super.initState();
+    numberFloor = widget.numberFloor ?? imageMap.keys.first;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Center (
-            child: Text('Карта ЮУрГУ')
+        title: const Text('Корпус 3бв'),
+        centerTitle: true,
         ),
-      ),
+
       body: SingleChildScrollView (
-          child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 40.0),
-                  const Text(
-                    'Вы находитесь в корпусе 3бв',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  const SizedBox(height: 40.0),
-                  Row (
-                    children: [
-                      ImageBuilder(selectedImage: selectedImage, imageMap: imageMap),
-                      Expanded (
-                          flex: 1,
-                          child: DropdownButton<String>(
-                            value:selectedImage,
-                            icon: const Icon(Icons.arrow_downward),
-                            elevation: 16,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedImage = newValue!;
-                              });
-                            },
-                            items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          )
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 50.0),
-                  Buttons(),
-                ]
+        child: Column(
+          children: [
+            const SizedBox(height: 60.0),
+            Center (
+              child: Container (
+                height: 30,
+                width: 50,
+                // color: const Color.fromARGB(255, 200, 155, 250),
+                child: DropdownButton<String>(
+                  value: numberFloor,
+                  icon: const Icon(Icons.keyboard_arrow_right_outlined),
+                  underline: Container(height: 0,),
+                  isExpanded: true,
+                  iconSize: 24,
+                  style: const TextStyle(color: Colors.black, fontSize: 20.0),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      numberFloor = newValue!;
+                    });
+                  },
+                  items: imageMap.keys.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
-          )
+            const SizedBox(height: 40.0),
+            ImageBuilder(numberFloor: numberFloor, imageMap: imageMap, jsonFile: jsonFile,),
+            const SizedBox(height: 40.0),
+          ]
+        ),
       ),
     );
   }

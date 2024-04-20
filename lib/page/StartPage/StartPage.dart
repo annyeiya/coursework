@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'Bottons.dart';
+import 'DrawerButtons.dart';
 import 'ImageBuilder.dart';
-
-void  _testMethod() {
-  print("hi");
-}
+import 'SearchScreen.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -15,31 +12,66 @@ class StartPage extends StatefulWidget {
 
 class _StartPage extends State<StartPage> {
 
+  int currentPageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Center (
-            child: Text('Карта ЮУрГУ')
+        title: const Text('Карта ЮУрГУ'),
+        centerTitle: true,
         ),
-      ),
-      body: const SingleChildScrollView (
-          child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 20.0),
-                  Text(
-                    'Добро пожаловать',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  SizedBox(height: 40.0),
-                  ImageBuilder(),
-                  SizedBox(height: 50.0),
-                  Buttons(),
-                ]
-            ),
-          )
+
+      body: [
+        const HomeScreen(),
+        const SearchScreen(),
+      ][currentPageIndex],
+
+      drawer: const DrawerButtons(),
+
+      bottomNavigationBar: NavigationBar (
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        height: 60,
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        indicatorColor: const Color.fromARGB(255, 200, 155, 250),
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'карта',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.search),
+            label: 'поиск',
+          ),
+        ],
+      )
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView (
+      child: Column (
+        children: [
+          const SizedBox(height: 40.0),
+          const Text(
+            'Добро пожаловать',
+            style: TextStyle(fontSize: 24.0),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 40.0),
+          ImageBuilder(),
+        ]
       ),
     );
   }

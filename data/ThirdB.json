@@ -1,0 +1,176 @@
+{
+  "1": [],
+  "2": [
+    {
+      "number": "244",
+      "left": 0.25,
+      "top": 0.32,
+      "width": 0.114,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 244"
+    },
+    {
+      "number": "246",
+      "left": 0.35,
+      "top": 0.32,
+      "width": 0.061,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 246"
+    },
+    {
+      "number": "248",
+      "left": 0.393,
+      "top": 0.32,
+      "width": 0.08,
+      "height": 0.07,
+      "icon" : "laptop",
+      "describe": "describe from 248"
+    },
+    {
+      "number": "250",
+      "left": 0.472,
+      "top": 0.32,
+      "width": 0.12,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 250"
+    },
+    {
+      "number": "252",
+      "left": 0.582,
+      "top": 0.32,
+      "width": 0.065,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 252"
+    },
+    {
+      "number": "254",
+      "left": 0.647,
+      "top": 0.32,
+      "width": 0.12,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 254"
+    }
+  ],
+  "3": [
+    {
+      "number": "323",
+      "left": 0.36,
+      "top": 0.22,
+      "width": 0.06,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 323"
+    },
+    {
+      "number": "325",
+      "left": 0.42,
+      "top": 0.22,
+      "width": 0.06,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 325"
+    },
+    {
+      "number": "327",
+      "left": 0.48,
+      "top": 0.22,
+      "width": 0.1,
+      "height": 0.07,
+      "icon" : "laptop",
+      "describe": "describe from 327"
+    },
+    {
+      "number": "329",
+      "left": 0.58,
+      "top": 0.22,
+      "width": 0.03,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 329"
+    },
+    {
+      "number": "331",
+      "left": 0.61,
+      "top": 0.22,
+      "width": 0.04,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 331"
+    },
+    {
+      "number": "333",
+      "left": 0.65,
+      "top": 0.22,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : "laptop",
+      "describe": "describe from 333"
+    },
+    {
+      "number": "330",
+      "left": 0.25,
+      "top": 0.32,
+      "width": 0.115,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 330"
+    },
+    {
+      "number": "332",
+      "left": 0.365,
+      "top": 0.32,
+      "width": 0.052,
+      "height": 0.07,
+      "icon" : "laptop",
+      "describe": "describe from 332"
+    },
+    {
+      "number": "334",
+      "left": 0.417,
+      "top": 0.32,
+      "width": 0.054,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 334"
+    },
+    {
+      "number": "336",
+      "left": 0.471,
+      "top": 0.32,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 336"
+    },
+    {
+      "number": "338",
+      "left": 0.581,
+      "top": 0.32,
+      "width": 0.066,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 338"
+    },
+    {
+      "number": "340",
+      "left": 0.647,
+      "top": 0.32,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : "laptop",
+      "describe": "describe from 340"
+    }
+  ],
+  "4": [],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [],
+  "9": [],
+  "10": []
+}

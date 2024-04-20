@@ -1,58 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/widgets/Building.dart';
+
+import 'Buttons.dart';
 
 class ImageBuilder extends StatelessWidget {
-  const ImageBuilder({super.key});
+  ImageBuilder({super.key});
+  final String selectedImage = Building.start;
+  final String? jsonFile = Building.jsonFiles['start'];
+
+  Future<List<Widget>> getButtons(BuildContext context) async {
+    List<Buttons> building = await Buttons.getButtonsFromJson(context, jsonFile!);
+    List<Widget> buttonsWidgets = building.map((building) =>
+        Buttons.building(context, building)).toList();
+    return buttonsWidgets;
+  }
 
   @override
   Widget build(BuildContext context) {
-    const String selectedImage = 'assets/img/вся_карта.jpg';
-    return Row(
-        children: [
-          Expanded(
-            child: InteractiveViewer(
-              minScale: 1.0,
-              maxScale: 5.0,
-              child: Stack (
-                  children: [
-                    SizedBox(
-                        height: MediaQuery.of(context).size.height * 5 / 8,
-                        child: Image.asset(
-                          selectedImage,
-                          key: UniqueKey(),
-                          fit: BoxFit.contain,
-                        )
-                    ),
-                    Positioned( /// 3бв
-                      left: 55,
-                      top: 300,
-                      child: GestureDetector (
-                        onTap: () {
-                          Navigator.of(context).pushNamed('/third_b');
-                        },
-                        child: Container (
-                          width: 30,
-                          height: 80,
-                          color: Colors.transparent,
+    final theme = MediaQuery.of(context);
+
+    return InteractiveViewer(
+      minScale: 1.0,
+      maxScale: 5.0,
+      child: FutureBuilder<List<Widget>>(
+        future: getButtons(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return OrientationBuilder(
+                builder: (BuildContext context, Orientation orientation) {
+                  return Stack(
+                      children: [
+                        SizedBox(
+                          width: theme.size.width,
+                          child: Image.asset(
+                            selectedImage,
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
-                      ),
-                    ),
-                    Positioned( /// 3а
-                      left: 85,
-                      top: 300,
-                      child: GestureDetector (
-                        onTap: () {
-                          Navigator.of(context).pushNamed('/third_a');
-                        },
-                        child: Container (
-                          width: 70,
-                          height: 30,
-                          color: Colors.transparent,
-                        ),
-                      ),
-                    ),
-                  ]),
-            ),
-          ),
-        ]);
+
+                        ...snapshot.data!,
+
+                      ]);
+                });
+            }
+          } else {
+            return const CircularProgressIndicator();
+          }
+        }),
+    );
   }
 }
