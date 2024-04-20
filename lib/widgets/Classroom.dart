@@ -9,6 +9,7 @@ class Classroom {
   final double top;
   final double width;
   final double height;
+  final IconData? icon;
   final String describe;
 
   Classroom({
@@ -17,6 +18,7 @@ class Classroom {
   required this.top,
   required this.width,
   required this.height,
+  required this.icon,
   required this.describe,
   });
 
@@ -36,6 +38,7 @@ class Classroom {
       top: json['top'],
       width: json['width'],
       height: json['height'],
+      icon: json['icon'] != null ? _getIconData(json['icon']) : null,
       describe: json['describe'],
     );
   }
@@ -52,12 +55,16 @@ class Classroom {
           width: theme.orientation == Orientation.portrait ? theme.size.shortestSide * cl.width : theme.size.longestSide * cl.width,
           height: theme.orientation == Orientation.portrait ? theme.size.shortestSide * cl.height : theme.size.longestSide * cl.height,
           color: color,
-          // child: Column(
-          //   children: [
-          //     SizedBox(height: theme.size.width * 0.01),
-          //     Text('325', style: TextStyle(),),
-          //     Icon (Icons.laptop, size: theme.size.width * 0.02,),
-          // ]),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: theme.size.width * 0.02,),
+              Text(cl.number, style: TextStyle(
+                fontSize: theme.size.width * 0.015,
+                fontWeight: FontWeight.w700,),
+              ),
+              Icon (cl.icon, size: theme.size.width * 0.03,),
+          ]),
         ),
       ),
     );
@@ -88,5 +95,15 @@ class Classroom {
             ),
           ),
     );
+  }
+
+  static IconData? _getIconData(String iconName) {
+    switch (iconName) {
+      case 'laptop':
+        return Icons.laptop;
+
+      default:
+        return null;
+    }
   }
 }
