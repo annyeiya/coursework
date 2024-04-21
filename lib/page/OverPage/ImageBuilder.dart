@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:untitled/widgets/Classroom.dart';
+import 'package:untitled/widgets/Transition.dart';
 
 class ImageBuilder extends StatelessWidget {
   const ImageBuilder({super.key, required this.numberFloor, required this.imageMap, this.jsonFile});
@@ -13,6 +14,9 @@ class ImageBuilder extends StatelessWidget {
     List<Classroom> classrooms = await Classroom.getClassroomsFromJson(context, jsonFile!, numberFloor!);
     List<Widget> classroomWidgets = classrooms.map((classroom) =>
         Classroom.classroom(context, classroom)).toList();
+
+    List<Transition> transition = await Transition.getTransitionFromJson(context, jsonFile!, numberFloor!);
+    classroomWidgets.addAll(transition.map((transition) => Transition.building(context, transition)));
     return classroomWidgets;
   }
 

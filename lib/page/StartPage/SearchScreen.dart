@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ThirdB/ThirdBPage.dart';
+import '../OverPage/CorpusPage.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -8,7 +8,7 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreen();
 }
 
-List<String> buildList = ['3бв'];
+List<String> buildList = ['3бв', '3а'];
 
 class _SearchScreen extends State<SearchScreen> {
 
@@ -91,9 +91,14 @@ class _SearchScreen extends State<SearchScreen> {
 void searcher(BuildContext context,int classroom, String buildNumb) {
   String room = setNumbClass(classroom);
   switch (buildNumb) {
-    case '3бв':
+    case '3б':
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ThirdBPage(numberFloor: room)),
+        MaterialPageRoute(builder: (context) => CorpusPage(numberFloor: room, name: '3б')),
+      );
+      break;
+    case '3а':
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => CorpusPage(numberFloor: room, name: '3а')),
       );
       break;
   }

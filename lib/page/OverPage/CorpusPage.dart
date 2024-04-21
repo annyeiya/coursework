@@ -4,32 +4,37 @@ import '../../widgets/Building.dart';
 import 'ImageBuilder.dart';
 
 
-class ThirdBPage extends StatefulWidget {
-  const ThirdBPage({super.key, this.numberFloor});
+class CorpusPage extends StatefulWidget {
+  const CorpusPage({super.key, this.numberFloor, required this.name});
 
   final String? numberFloor;
+  final String name;
 
   @override
-  State<ThirdBPage> createState() => _ThirdBPage();
+  State<CorpusPage> createState() => _CorpusPage();
 }
 
-class _ThirdBPage extends State<ThirdBPage> {
+class _CorpusPage extends State<CorpusPage> {
 
-  final Map<String, String> imageMap = Building.thirdB;
+  late Map<String, String> imageMap;
+  late String name;
   String? numberFloor;
-  final String? jsonFile = Building.jsonFiles['3б'];
+  late String? jsonFile;
 
   @override
   void initState () {
     super.initState();
+    name = widget.name;
+    imageMap = Building.naming[name]![1] as Map<String, String>;
     numberFloor = widget.numberFloor ?? imageMap.keys.first;
+    jsonFile = Building.jsonFiles[name];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Text('Корпус 3бв'),
+        title: Text(Building.naming[name]![0] as String),
         centerTitle: true,
         ),
 
@@ -38,10 +43,9 @@ class _ThirdBPage extends State<ThirdBPage> {
           children: [
             const SizedBox(height: 60.0),
             Center (
-              child: Container (
+              child: SizedBox (
                 height: 30,
                 width: 50,
-                // color: const Color.fromARGB(255, 200, 155, 250),
                 child: DropdownButton<String>(
                   value: numberFloor,
                   icon: const Icon(Icons.keyboard_arrow_right_outlined),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../OverPage/CorpusPage.dart';
+
 class DrawerButtons extends StatelessWidget {
   const DrawerButtons({super.key});
 
@@ -23,7 +25,9 @@ class DrawerButtons extends StatelessWidget {
               title: const Text('корпус 3бв'),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).pushNamed('/third_b');
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CorpusPage(name: '3б')),
+                );
               },
             ),
             const Divider(),
@@ -31,18 +35,13 @@ class DrawerButtons extends StatelessWidget {
               title: const Text('корпус 3а'),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).pushNamed('/third_a');
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CorpusPage(name: '3а')),
+                );
               },
             ),
             const Divider(),
-            ListTile(
-              title: const Text('ГУК'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/mab');
-              },
-            ),
-            const Divider(),
+
             //TODO остальные корпуса
           ],
         )

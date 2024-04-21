@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/page/MABPage.dart';
 import 'package:untitled/page/StartPage/StartPage.dart';
-import 'package:untitled/page/ThirdAPage.dart';
-import 'package:untitled/page/ThirdB/ThirdBPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => const StartPage(),
-          '/third_b': (context) => ThirdBPage(),
-          '/third_a': (context) => const ThirdAPage(),
-          '/mab': (context) => const MABPage(),
+          // '/third_b': (context) => const ThirdBPage(name: '3б',),
+          // '/third_a': (context) => const ThirdAPage(),
+          // '/mab': (context) => const MABPage(),
         }
     );
   }
