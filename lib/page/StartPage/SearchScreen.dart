@@ -8,7 +8,7 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreen();
 }
 
-List<String> buildList = ['3бв', '3а'];
+List<String> buildList = ['3б', '3а'];
 
 class _SearchScreen extends State<SearchScreen> {
 

@@ -55,7 +55,7 @@ class Transition {
       top: theme.orientation == Orientation.portrait ? theme.size.shortestSide * bt.top : theme.size.longestSide * bt.top,
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
+          Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => CorpusPage(name: bt.name, numberFloor: bt.floor,)),
           );
         },

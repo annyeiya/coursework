@@ -60,7 +60,7 @@ class Classroom {
             children: [
               SizedBox(width: theme.size.width * 0.02,),
               Text(cl.number, style: TextStyle(
-                fontSize: theme.size.width * 0.015,
+                fontSize: theme.size.width * 0.013,
                 fontWeight: FontWeight.w700,),
               ),
               Icon (cl.icon, size: theme.size.width * 0.03,),
