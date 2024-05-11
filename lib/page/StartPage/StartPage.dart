@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'DrawerButtons.dart';
-import 'ImageBuilder.dart';
+import 'HomeScreen.dart';
 import 'SearchScreen.dart';
 
 class StartPage extends StatefulWidget {
@@ -12,33 +12,40 @@ class StartPage extends StatefulWidget {
 
 class _StartPage extends State<StartPage> {
 
-  int currentPageIndex = 0;
+  int _currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold (
-      appBar: AppBar(
-        title: const Text('Карта ЮУрГУ'),
-        centerTitle: true,
-        ),
+      body: NestedScrollView (
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          const SliverAppBar(
+            title: Text('Карта ЮУрГУ'),
+            centerTitle: true,
+            floating: false,
+            pinned: false,
+            snap: false,
+          ),
+        ],
 
-      body: [
-        const HomeScreen(),
-        const SearchScreen(),
-      ][currentPageIndex],
+
+        body: [
+          const HomeScreen(),
+          const SearchScreen(),
+        ][_currentPageIndex],),
 
       drawer: const DrawerButtons(),
 
       bottomNavigationBar: NavigationBar (
         onDestinationSelected: (int index) {
           setState(() {
-            currentPageIndex = index;
+            _currentPageIndex = index;
           });
         },
         height: 60,
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         indicatorColor: const Color.fromARGB(255, 200, 155, 250),
-        selectedIndex: currentPageIndex,
+        selectedIndex: _currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
             selectedIcon: Icon(Icons.home),
@@ -51,28 +58,6 @@ class _StartPage extends State<StartPage> {
           ),
         ],
       )
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView (
-      child: Column (
-        children: [
-          const SizedBox(height: 40.0),
-          const Text(
-            'Добро пожаловать',
-            style: TextStyle(fontSize: 24.0),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 40.0),
-          ImageBuilder(),
-        ]
-      ),
     );
   }
 }

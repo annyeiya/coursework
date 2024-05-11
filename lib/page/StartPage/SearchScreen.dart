@@ -8,14 +8,14 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreen();
 }
 
-List<String> buildList = ['3б', '3а'];
-
 class _SearchScreen extends State<SearchScreen> {
+
+  final List<String> _buildList = ['3б', '3бв', '3а'];
 
   final TextEditingController _classroom = TextEditingController();
   final TextEditingController _buildnumber = TextEditingController();
 
-  String warning = '';
+  String _warning = '';
 
   @override
   void dispose() {
@@ -51,25 +51,27 @@ class _SearchScreen extends State<SearchScreen> {
         const SizedBox(height: 20),
         TextButton (
           onPressed: () {
-            String buildNumb = _buildnumber.text.toLowerCase();
-            int? classroom = int.tryParse(_classroom.text);
-            if (classroom == null) {
+            String buildNumb = _buildnumber.text.trim().toLowerCase();
+            String classroom = _classroom.text.trim();
+            bool isClassroom = RegExp(r'^\d+[аб]?$').hasMatch(classroom);
+            int clas = isClassroom ? int.parse(classroom.replaceAll(RegExp(r'[аб]$'), '')) : 0;
+            if (!isClassroom) {
               setState(() {
-                warning = 'Неверный ввод аудитории';
+                _warning = 'Неверный ввод аудитории';
               });
-            } else if (classroom < 100 || classroom > 1300) { /// сомнительные ограничения но окей
+            } else if (clas < 100 || clas > 1100) { /// сомнительные ограничения но окей
               setState(() {
-                warning = 'Такой аудитории не существует';
+                _warning = 'Такой аудитории не существует';
               });
-            } else if (!buildList.contains(buildNumb)) {
+            } else if (!_buildList.contains(buildNumb)) {
               setState(() {
-                warning ='Такого корпуса не существует';
+                _warning ='Такого корпуса не существует';
               });
             } else {
               setState(() {
-                warning ='';
+                _warning ='';
               });
-              searcher(context, classroom, buildNumb);
+              _searcher(context, clas, buildNumb);
             }
           },
           child: const Text('Найти'),
@@ -77,8 +79,9 @@ class _SearchScreen extends State<SearchScreen> {
         Row (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Icon(_warning == '' ? null : Icons.error_outline, color: Colors.red,),
             Text(
-              warning,
+              _warning,
               style: const TextStyle(fontSize: 15, color: Colors.red),
             ),
           ],
@@ -88,10 +91,10 @@ class _SearchScreen extends State<SearchScreen> {
   }
 }
 
-void searcher(BuildContext context,int classroom, String buildNumb) {
-  String room = setNumbClass(classroom);
+void _searcher(BuildContext context, int classroom, String buildNumb) {
+  String room = _setNumbClass(classroom);
   switch (buildNumb) {
-    case '3б':
+    case ('3б' || '3бв'):
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => CorpusPage(numberFloor: room, name: '3б')),
       );
@@ -104,7 +107,7 @@ void searcher(BuildContext context,int classroom, String buildNumb) {
   }
 }
 
-String setNumbClass(int classroom) {
+String _setNumbClass(int classroom) {
   String room = classroom.toString();
   if (room.length == 3) {
     return room[0];

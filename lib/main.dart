@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Loading.dart';
 import 'package:untitled/page/StartPage/StartPage.dart';
 
-void main() {
+
+void main() async {
   runApp(const MyApp());
 }
 
@@ -12,7 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
             backgroundColor: Color.fromARGB(255, 200, 155, 250),
@@ -24,10 +25,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const StartPage(),
-          // '/third_b': (context) => const ThirdBPage(name: '3б',),
-          // '/third_a': (context) => const ThirdAPage(),
-          // '/mab': (context) => const MABPage(),
+          '/': (context) => const Loading(),
+          '/start': (context) => const StartPage(),
         }
     );
   }

@@ -23,10 +23,10 @@ class Buttons {
   static Future<List<Buttons>> getButtonsFromJson(BuildContext context, String file) async {
     String data = await rootBundle.loadString('data/$file.json');
     List<dynamic> jsonData = json.decode(data);
-    return jsonData.map((json) => Buttons.fromJson(json)).toList();
+    return jsonData.map((json) => Buttons._fromJson(json)).toList();
   }
 
-  factory Buttons.fromJson(Map<String, dynamic> json) {
+  factory Buttons._fromJson(Map<String, dynamic> json) {
     return Buttons(
       name: json['name'],
       left: json['left'],
@@ -37,7 +37,7 @@ class Buttons {
   }
 
 
-  static Widget building (BuildContext context, Buttons bt, {Color color = Colors.transparent}) {
+  static Widget building (BuildContext context, Buttons bt, {Color color = Colors.transparent }) {
 
     final theme = MediaQuery.of(context);
 

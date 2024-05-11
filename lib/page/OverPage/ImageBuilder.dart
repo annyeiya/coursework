@@ -10,12 +10,12 @@ class ImageBuilder extends StatelessWidget {
   final Map<String, String> imageMap;
   final String? jsonFile;
 
-  Future<List<Widget>> getClassroom (BuildContext context) async {
-    List<Classroom> classrooms = await Classroom.getClassroomsFromJson(context, jsonFile!, numberFloor!);
+  Future<List<Widget>> _getClassroom (BuildContext context) async {
+    List<Classroom> classrooms = await Classroom.getClassroomsFromJson(jsonFile!, numberFloor!);
     List<Widget> classroomWidgets = classrooms.map((classroom) =>
         Classroom.classroom(context, classroom)).toList();
 
-    List<Transition> transition = await Transition.getTransitionFromJson(context, jsonFile!, numberFloor!);
+    List<Transition> transition = await Transition.getTransitionFromJson(jsonFile!, numberFloor!);
     classroomWidgets.addAll(transition.map((transition) => Transition.building(context, transition)));
     return classroomWidgets;
   }
@@ -26,7 +26,7 @@ class ImageBuilder extends StatelessWidget {
       minScale: 1.0,
       maxScale: 5.0,
       child: FutureBuilder<List<Widget>>(
-        future: getClassroom(context),
+        future: _getClassroom(context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {

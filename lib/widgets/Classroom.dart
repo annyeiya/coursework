@@ -22,16 +22,16 @@ class Classroom {
   required this.describe,
   });
 
-  static Future<List<Classroom>> getClassroomsFromJson(BuildContext context, String file, String floor) async {
+  static Future<List<Classroom>> getClassroomsFromJson(String file, String floor) async {
     String data = await rootBundle.loadString('data/$file.json');
     Map<String, dynamic> jsonData = json.decode(data);
     List<dynamic> floorData = jsonData[floor] ?? [];
     return floorData
-        .map((json) => Classroom.fromJson(json))
+        .map((json) => Classroom._fromJson(json))
         .toList();
   }
 
-  factory Classroom.fromJson(Map<String, dynamic> json) {
+  factory Classroom._fromJson(Map<String, dynamic> json) {
     return Classroom(
       number: json['number'],
       left: json['left'],

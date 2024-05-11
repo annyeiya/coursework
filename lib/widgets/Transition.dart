@@ -24,17 +24,17 @@ class Transition {
     required this.height,
   });
 
-  static Future<List<Transition>> getTransitionFromJson(BuildContext context, String file, String floor) async {
+  static Future<List<Transition>> getTransitionFromJson(String file, String floor) async {
     String data = await rootBundle.loadString('data/$file.json');
     Map<String, dynamic> jsonData = json.decode(data);
     List<dynamic> floorData = jsonData["-1"][floor] ?? [];
 
     return floorData
-        .map((json) => Transition.fromJson(json))
+        .map((json) => Transition._fromJson(json))
         .toList();
   }
 
-  factory Transition.fromJson(Map<String, dynamic> json) {
+  factory Transition._fromJson(Map<String, dynamic> json) {
     return Transition(
       name: json['name'],
       floor: json['floor'],
