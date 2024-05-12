@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 
 import '../OverPage/CorpusPage.dart';
 
@@ -35,14 +36,14 @@ class _SearchScreen extends State<SearchScreen> {
             Expanded(
               child: TextField(
                 controller: _classroom,
-                decoration: const InputDecoration(labelText: '№ аудитории',),
+                decoration: InputDecoration(labelText: "№ ${context.localeString('auditorium')}"),
               ),
             ),
             const SizedBox(width: 20),
             Expanded(
               child: TextField(
                 controller: _buildnumber,
-                decoration: const InputDecoration(labelText: 'Корпус',),
+                decoration: InputDecoration(labelText: context.localeString('housing')),
               ),
             ),
             const SizedBox(width: 30),
@@ -57,15 +58,15 @@ class _SearchScreen extends State<SearchScreen> {
             int clas = isClassroom ? int.parse(classroom.replaceAll(RegExp(r'[аб]$'), '')) : 0;
             if (!isClassroom) {
               setState(() {
-                _warning = 'Неверный ввод аудитории';
+                _warning = context.localeString('warning1');
               });
             } else if (clas < 100 || clas > 1100) { /// сомнительные ограничения но окей
               setState(() {
-                _warning = 'Такой аудитории не существует';
+                _warning = context.localeString('warning2');
               });
             } else if (!_buildList.contains(buildNumb)) {
               setState(() {
-                _warning ='Такого корпуса не существует';
+                _warning = context.localeString('warning3');
               });
             } else {
               setState(() {
@@ -74,7 +75,7 @@ class _SearchScreen extends State<SearchScreen> {
               _searcher(context, clas, buildNumb);
             }
           },
-          child: const Text('Найти'),
+          child: const LocaleText('find'),
         ),
         Row (
           mainAxisAlignment: MainAxisAlignment.center,

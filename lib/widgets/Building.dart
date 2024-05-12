@@ -6,11 +6,11 @@ class Building {
  };
 
   static final Map<String, List<Object>> naming = {
-    '3б' : [ "Корпус 3бв", thirdB ],
-    '3а': [ "Корпус 3а", thirdA]
+    '3б' : [ "3бв", thirdB ],
+    '3а': [ "3а", thirdA]
   };
 
-  static const String start = 'assets/img/вся_карта.jpg';
+  static const String start = 'assets/img/студГородок.jpg';
 
   static final Map<String, String> thirdB = {
     '1': 'Без_имени',

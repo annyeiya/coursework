@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 
 import '../../widgets/Building.dart';
 import 'ImageBuilder.dart';
@@ -36,7 +37,7 @@ class _CorpusPage extends State<CorpusPage> {
      body: NestedScrollView (
       headerSliverBuilder: (context, innerBoxIsScrolled) => [
         SliverAppBar(
-          title: Text(Building.naming[_name]![0] as String),
+          title: Text("${context.localeString("housing")} ${Building.naming[_name]![0] as String}"),
           centerTitle: true,
           floating: false,
           pinned: false,
@@ -49,7 +50,7 @@ class _CorpusPage extends State<CorpusPage> {
               Row (
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('этаж: ', style: TextStyle(fontSize: 20),),
+                  const LocaleText('floor', style: TextStyle(fontSize: 20),),
                   SizedBox (
                   height: 30,
                   width: 50,

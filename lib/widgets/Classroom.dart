@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'package:flutter_locales/flutter_locales.dart';
 
 class Classroom {
 
@@ -81,14 +82,14 @@ class Classroom {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Кабинет № $number'),
+                  Text('${context.localeString('office')} № $number'),
                   Text('Здесь должна быть информация честно $describe'),
                   const SizedBox(height: 15),
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Закрыть'),
+                    child: const LocaleText('close'),
                   ),
                 ],
               ),

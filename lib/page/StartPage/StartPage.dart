@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 
 import 'DrawerButtons.dart';
 import 'HomeScreen.dart';
@@ -20,14 +21,13 @@ class _StartPage extends State<StartPage> {
       body: NestedScrollView (
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           const SliverAppBar(
-            title: Text('Карта ЮУрГУ'),
+            title: LocaleText('susumap'),
             centerTitle: true,
             floating: false,
             pinned: false,
             snap: false,
           ),
         ],
-
 
         body: [
           const HomeScreen(),
@@ -46,15 +46,15 @@ class _StartPage extends State<StartPage> {
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         indicatorColor: const Color.fromARGB(255, 200, 155, 250),
         selectedIndex: _currentPageIndex,
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'карта',
+            selectedIcon: const Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
+            label: context.localeString('map'),
           ),
           NavigationDestination(
-            icon: Icon(Icons.search),
-            label: 'поиск',
+            icon: const Icon(Icons.search),
+            label: context.localeString('search'),
           ),
         ],
       )
