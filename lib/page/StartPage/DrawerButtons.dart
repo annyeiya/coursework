@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
+
+import '../OverPage/CorpusPage.dart';
 
 class DrawerButtons extends StatelessWidget {
   const DrawerButtons({super.key});
@@ -13,37 +16,45 @@ class DrawerButtons extends StatelessWidget {
               height: 120,
               child: DrawerHeader(
                 decoration: BoxDecoration(color: Color.fromARGB(255, 200, 155, 250)),
-                child: Text (
-                  'Выберите корпус',
+                child: LocaleText(
+                  'selecthousing',
                   style: TextStyle(fontSize: 24, ),
                 ),
               ),
             ),
             ListTile(
-              title: const Text('корпус 3бв'),
+              title: Text("${context.localeString("housing")} 3бв"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).pushNamed('/third_b');
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CorpusPage(name: '3б')),
+                );
               },
             ),
             const Divider(),
             ListTile(
-              title: const Text('корпус 3а'),
+              title: Text("${context.localeString("housing")} 3а"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).pushNamed('/third_a');
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CorpusPage(name: '3а')),
+                );
               },
             ),
             const Divider(),
-            ListTile(
-              title: const Text('ГУК'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/mab');
-              },
-            ),
-            const Divider(),
+
             //TODO остальные корпуса
+
+            IconButton(
+              icon: const Icon(Icons.translate),
+              onPressed: () {
+                if (context.currentLocale?.languageCode == 'en') {
+                  context.changeLocale('ru');
+                } else {
+                  context.changeLocale('en');
+                }
+              }
+            )
           ],
         )
     );

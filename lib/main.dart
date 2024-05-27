@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/page/MABPage.dart';
+import 'package:flutter_locales/flutter_locales.dart';
+import 'package:untitled/Loading.dart';
 import 'package:untitled/page/StartPage/StartPage.dart';
-import 'package:untitled/page/ThirdAPage.dart';
-import 'package:untitled/page/ThirdB/ThirdBPage.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Locales.init(['ru', 'en']);
   runApp(const MyApp());
 }
 
@@ -13,25 +15,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Color.fromARGB(255, 200, 155, 250),
-            titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 23,
-              fontWeight: FontWeight.w500,
-            )
+    return LocaleBuilder(
+        builder: (locale) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "SUSU Map",
+          locale: locale,
+          localizationsDelegates: Locales.delegates,
+          supportedLocales: Locales.supportedLocales,
+          theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Color.fromARGB(255, 200, 155, 250),
+              titleTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 23,
+                fontWeight: FontWeight.w500,
+              )
+            ),
           ),
+          routes: {
+            '/': (context) => const Loading(),
+            '/start': (context) => const StartPage(),
+          }
         ),
-        routes: {
-          '/': (context) => const StartPage(),
-          '/third_b': (context) => ThirdBPage(),
-          '/third_a': (context) => const ThirdAPage(),
-          '/mab': (context) => const MABPage(),
-        }
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'package:flutter_locales/flutter_locales.dart';
 
 class Classroom {
 
@@ -22,16 +23,16 @@ class Classroom {
   required this.describe,
   });
 
-  static Future<List<Classroom>> getClassroomsFromJson(BuildContext context, String file, String floor) async {
+  static Future<List<Classroom>> getClassroomsFromJson(String file, String floor) async {
     String data = await rootBundle.loadString('data/$file.json');
     Map<String, dynamic> jsonData = json.decode(data);
     List<dynamic> floorData = jsonData[floor] ?? [];
     return floorData
-        .map((json) => Classroom.fromJson(json))
+        .map((json) => Classroom._fromJson(json))
         .toList();
   }
 
-  factory Classroom.fromJson(Map<String, dynamic> json) {
+  factory Classroom._fromJson(Map<String, dynamic> json) {
     return Classroom(
       number: json['number'],
       left: json['left'],
@@ -44,7 +45,7 @@ class Classroom {
   }
 
 
-  static Widget classroom(BuildContext context, Classroom cl, {Color color = Colors.transparent}) { //transparent
+  static Widget classroom(BuildContext context, Classroom cl, {Color color = Colors.transparent}) { //transparent //white70
     final theme = MediaQuery.of(context);
     return Positioned(
       left: theme.orientation == Orientation.portrait ? theme.size.shortestSide * cl.left : theme.size.longestSide * cl.left,
@@ -60,7 +61,7 @@ class Classroom {
             children: [
               SizedBox(width: theme.size.width * 0.02,),
               Text(cl.number, style: TextStyle(
-                fontSize: theme.size.width * 0.015,
+                fontSize: theme.size.width * 0.013,
                 fontWeight: FontWeight.w700,),
               ),
               Icon (cl.icon, size: theme.size.width * 0.03,),
@@ -81,14 +82,14 @@ class Classroom {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Кабинет № $number'),
+                  Text('${context.localeString('office')} № $number'),
                   Text('Здесь должна быть информация честно $describe'),
                   const SizedBox(height: 15),
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Закрыть'),
+                    child: const LocaleText('close'),
                   ),
                 ],
               ),

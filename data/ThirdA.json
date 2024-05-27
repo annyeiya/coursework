@@ -1,0 +1,466 @@
+{
+  "-1": {
+    "2": [
+      {
+        "name": "3б",
+        "floor": "2",
+        "left": 0.93,
+        "top": 0.24,
+        "width": 0.02,
+        "height": 0.05
+      }
+    ],
+    "3": [
+      {
+        "name": "3б",
+        "floor": "3",
+        "left": 0.887,
+        "top": 0.28,
+        "width": 0.02,
+        "height": 0.045
+      }
+    ]
+  },
+  "1": [],
+  "2": [
+    {
+      "number": "263",
+      "left": 0.14,
+      "top": 0.195,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 263"
+    },
+    {
+      "number": "265",
+      "left": 0.19,
+      "top": 0.195,
+      "width": 0.095,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 265"
+    },
+    {
+      "number": "267",
+      "left": 0.33,
+      "top": 0.195,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 267"
+    },
+    {
+      "number": "269",
+      "left": 0.375,
+      "top": 0.195,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 269"
+    },
+    {
+      "number": "271",
+      "left": 0.52,
+      "top": 0.195,
+      "width": 0.1,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 271"
+    },
+    {
+      "number": "273",
+      "left": 0.62,
+      "top": 0.195,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 273"
+    },
+    {
+      "number": "273",
+      "left": 0.665,
+      "top": 0.195,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 273"
+    },
+    {
+      "number": "275",
+      "left": 0.715,
+      "top": 0.195,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 275"
+    },
+    {
+      "number": "275",
+      "left": 0.765,
+      "top": 0.195,
+      "width": 0.095,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 275"
+    },
+    {
+      "number": "275",
+      "left": 0.86,
+      "top": 0.195,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 275"
+    },
+
+    {
+      "number": "274",
+      "left": 0.09,
+      "top": 0.285,
+      "width": 0.1,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 274"
+    },
+    {
+      "number": "276",
+      "left": 0.19,
+      "top": 0.285,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 276"
+    },
+    {
+      "number": "276",
+      "left": 0.24,
+      "top": 0.285,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 276"
+    },
+    {
+      "number": "278",
+      "left": 0.325,
+      "top": 0.285,
+      "width": 0.03,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 278"
+    },
+    {
+      "number": "280",
+      "left": 0.353,
+      "top": 0.285,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 280"
+    },
+    {
+      "number": "282",
+      "left": 0.38,
+      "top": 0.285,
+      "width": 0.065,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 282"
+    },
+    {
+      "number": "284",
+      "left": 0.445,
+      "top": 0.285,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 284"
+    },
+    {
+      "number": "286",
+      "left": 0.47,
+      "top": 0.285,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 286"
+    },
+    {
+      "number": "288",
+      "left": 0.495,
+      "top": 0.285,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 288"
+    },
+    {
+      "number": "290",
+      "left": 0.52,
+      "top": 0.285,
+      "width": 0.055,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 290"
+    },
+    {
+      "number": "290",
+      "left": 0.575,
+      "top": 0.285,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 290"
+    },
+    {
+      "number": "292",
+      "left": 0.625,
+      "top": 0.285,
+      "width": 0.07,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 292"
+    },
+    {
+      "number": "292",
+      "left": 0.691,
+      "top": 0.285,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 292"
+    },
+    {
+      "number": "294",
+      "left": 0.719,
+      "top": 0.285,
+      "width": 0.07,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 294"
+    }
+  ],
+  "3": [
+    {
+      "number": "325",
+      "left": 0.14,
+      "top": 0.235,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 325"
+    },
+    {
+      "number": "327",
+      "left": 0.185,
+      "top": 0.235,
+      "width": 0.09,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 327"
+    },
+    {
+      "number": "329",
+      "left": 0.275,
+      "top": 0.235,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 329"
+    },
+    {
+      "number": "331",
+      "left": 0.32,
+      "top": 0.235,
+      "width": 0.04,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 331"
+    },
+    {
+      "number": "333",
+      "left": 0.36,
+      "top": 0.235,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 333"
+    },
+    {
+      "number": "335",
+      "left": 0.495,
+      "top": 0.235,
+      "width": 0.055,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 335"
+    },
+    {
+      "number": "337",
+      "left": 0.55,
+      "top": 0.235,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 337"
+    },
+    {
+      "number": "339",
+      "left": 0.595,
+      "top": 0.235,
+      "width": 0.09,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 339"
+    },
+    {
+      "number": "341",
+      "left": 0.685,
+      "top": 0.235,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 341"
+    },
+    {
+      "number": "343",
+      "left": 0.73,
+      "top": 0.235,
+      "width": 0.085,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 343"
+    },
+    {
+      "number": "345",
+      "left": 0.815,
+      "top": 0.235,
+      "width": 0.05,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 345"
+    },
+
+    {
+      "number": "345",
+      "left": 0.095,
+      "top": 0.32,
+      "width": 0.09,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 345"
+    },
+    {
+      "number": "345",
+      "left": 0.185,
+      "top": 0.32,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 345"
+    },
+    {
+      "number": "345",
+      "left": 0.23,
+      "top": 0.32,
+      "width": 0.07,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 345"
+    },
+    {
+      "number": "344",
+      "left": 0.3,
+      "top": 0.32,
+      "width": 0.065,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 344"
+    },
+    {
+      "number": "346",
+      "left": 0.365,
+      "top": 0.32,
+      "width": 0.04,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 346"
+    },
+    {
+      "number": "346",
+      "left": 0.406,
+      "top": 0.32,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 346"
+    },
+    {
+      "number": "348",
+      "left": 0.43,
+      "top": 0.32,
+      "width": 0.08,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 348"
+    },
+    {
+      "number": "345",
+      "left": 0.51,
+      "top": 0.32,
+      "width": 0.085,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 345"
+    },
+    {
+      "number": "350",
+      "left": 0.595,
+      "top": 0.32,
+      "width": 0.11,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 350"
+    },
+    {
+      "number": "352",
+      "left": 0.704,
+      "top": 0.32,
+      "width": 0.025,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 352"
+    },
+    {
+      "number": "354",
+      "left": 0.73,
+      "top": 0.32,
+      "width": 0.045,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 354"
+    },
+    {
+      "number": "356",
+      "left": 0.775,
+      "top": 0.32,
+      "width": 0.04,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 356"
+    },
+    {
+      "number": "358",
+      "left": 0.815,
+      "top": 0.32,
+      "width": 0.09,
+      "height": 0.06,
+      "icon" : null,
+      "describe": "describe from 358"
+    }
+  ],
+  "4": [],
+  "5": [],
+  "6": []
+}

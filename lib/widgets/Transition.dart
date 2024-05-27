@@ -2,33 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
-import '../OverPage/CorpusPage.dart';
+import '../page/OverPage/CorpusPage.dart';
 
-class Buttons {
+
+
+class Transition {
 
   final String name;
+  final String floor;
   final double left;
   final double top;
   final double width;
   final double height;
 
-  Buttons({
+  Transition({
     required this.name,
+    required this.floor,
     required this.left,
     required this.top,
     required this.width,
     required this.height,
   });
 
-  static Future<List<Buttons>> getButtonsFromJson(BuildContext context, String file) async {
+  static Future<List<Transition>> getTransitionFromJson(String file, String floor) async {
     String data = await rootBundle.loadString('data/$file.json');
-    List<dynamic> jsonData = json.decode(data);
-    return jsonData.map((json) => Buttons._fromJson(json)).toList();
+    Map<String, dynamic> jsonData = json.decode(data);
+    List<dynamic> floorData = jsonData["-1"][floor] ?? [];
+
+    return floorData
+        .map((json) => Transition._fromJson(json))
+        .toList();
   }
 
-  factory Buttons._fromJson(Map<String, dynamic> json) {
-    return Buttons(
+  factory Transition._fromJson(Map<String, dynamic> json) {
+    return Transition(
       name: json['name'],
+      floor: json['floor'],
       left: json['left'],
       top: json['top'],
       width: json['width'],
@@ -37,7 +46,7 @@ class Buttons {
   }
 
 
-  static Widget building (BuildContext context, Buttons bt, {Color color = Colors.transparent }) {
+  static Widget building (BuildContext context, Transition bt, {Color color = Colors.transparent}) {
 
     final theme = MediaQuery.of(context);
 
@@ -46,8 +55,8 @@ class Buttons {
       top: theme.orientation == Orientation.portrait ? theme.size.shortestSide * bt.top : theme.size.longestSide * bt.top,
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => CorpusPage(name: bt.name)),
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => CorpusPage(name: bt.name, numberFloor: bt.floor,)),
           );
         },
         child: Container(

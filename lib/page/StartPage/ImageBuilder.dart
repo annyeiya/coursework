@@ -5,11 +5,11 @@ import 'Buttons.dart';
 
 class ImageBuilder extends StatelessWidget {
   ImageBuilder({super.key});
-  final String selectedImage = Building.start;
-  final String? jsonFile = Building.jsonFiles['start'];
+  final String _selectedImage = Building.start;
+  final String? _jsonFile = Building.jsonFiles['start'];
 
-  Future<List<Widget>> getButtons(BuildContext context) async {
-    List<Buttons> building = await Buttons.getButtonsFromJson(context, jsonFile!);
+  Future<List<Widget>> _getButtons(BuildContext context) async {
+    List<Buttons> building = await Buttons.getButtonsFromJson(context, _jsonFile!);
     List<Widget> buttonsWidgets = building.map((building) =>
         Buttons.building(context, building)).toList();
     return buttonsWidgets;
@@ -23,7 +23,7 @@ class ImageBuilder extends StatelessWidget {
       minScale: 1.0,
       maxScale: 5.0,
       child: FutureBuilder<List<Widget>>(
-        future: getButtons(context),
+        future: _getButtons(context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
@@ -36,7 +36,7 @@ class ImageBuilder extends StatelessWidget {
                         SizedBox(
                           width: theme.size.width,
                           child: Image.asset(
-                            selectedImage,
+                            _selectedImage,
                             fit: BoxFit.fitWidth,
                           ),
                         ),

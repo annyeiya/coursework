@@ -1,9 +1,16 @@
 [
   {
-    "root" : "/third_b",
-    "left": 0.1,
-    "top": 0.54,
+    "name" : "3б",
+    "left": 0.07,
+    "top": 0.55,
     "width": 0.07,
     "height": 0.2
+  },
+  {
+    "name" : "3а",
+    "left": 0.14,
+    "top": 0.55,
+    "width": 0.18,
+    "height": 0.06
   }
 ]

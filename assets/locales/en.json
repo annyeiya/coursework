@@ -1,0 +1,16 @@
+{
+  "susumap": "SUSU Map",
+  "housing": "Housing",
+  "welcome": "Welcome",
+  "auditorium": "Auditorium",
+  "warning1": "Incorrect audience input",
+  "warning2": "There is no such audience",
+  "warning3": "There is no such building",
+  "find": "Find",
+  "selecthousing": "Select a housing",
+  "floor": "floor: ",
+  "office": "Office",
+  "close": "Close",
+  "map": "map",
+  "search": "search"
+}

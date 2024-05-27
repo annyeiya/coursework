@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 
-import '../ThirdB/ThirdBPage.dart';
+import '../OverPage/CorpusPage.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -8,14 +9,14 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreen();
 }
 
-List<String> buildList = ['3бв'];
-
 class _SearchScreen extends State<SearchScreen> {
+
+  final List<String> _buildList = ['3б', '3бв', '3а'];
 
   final TextEditingController _classroom = TextEditingController();
   final TextEditingController _buildnumber = TextEditingController();
 
-  String warning = '';
+  String _warning = '';
 
   @override
   void dispose() {
@@ -35,14 +36,14 @@ class _SearchScreen extends State<SearchScreen> {
             Expanded(
               child: TextField(
                 controller: _classroom,
-                decoration: const InputDecoration(labelText: '№ аудитории',),
+                decoration: InputDecoration(labelText: "№ ${context.localeString('auditorium')}"),
               ),
             ),
             const SizedBox(width: 20),
             Expanded(
               child: TextField(
                 controller: _buildnumber,
-                decoration: const InputDecoration(labelText: 'Корпус',),
+                decoration: InputDecoration(labelText: context.localeString('housing')),
               ),
             ),
             const SizedBox(width: 30),
@@ -51,34 +52,37 @@ class _SearchScreen extends State<SearchScreen> {
         const SizedBox(height: 20),
         TextButton (
           onPressed: () {
-            String buildNumb = _buildnumber.text.toLowerCase();
-            int? classroom = int.tryParse(_classroom.text);
-            if (classroom == null) {
+            String buildNumb = _buildnumber.text.trim().toLowerCase();
+            String classroom = _classroom.text.trim();
+            bool isClassroom = RegExp(r'^\d+[аб]?$').hasMatch(classroom);
+            int clas = isClassroom ? int.parse(classroom.replaceAll(RegExp(r'[аб]$'), '')) : 0;
+            if (!isClassroom) {
               setState(() {
-                warning = 'Неверный ввод аудитории';
+                _warning = context.localeString('warning1');
               });
-            } else if (classroom < 100 || classroom > 1300) { /// сомнительные ограничения но окей
+            } else if (clas < 100 || clas > 1100) { /// сомнительные ограничения но окей
               setState(() {
-                warning = 'Такой аудитории не существует';
+                _warning = context.localeString('warning2');
               });
-            } else if (!buildList.contains(buildNumb)) {
+            } else if (!_buildList.contains(buildNumb)) {
               setState(() {
-                warning ='Такого корпуса не существует';
+                _warning = context.localeString('warning3');
               });
             } else {
               setState(() {
-                warning ='';
+                _warning ='';
               });
-              searcher(context, classroom, buildNumb);
+              _searcher(context, clas, buildNumb);
             }
           },
-          child: const Text('Найти'),
+          child: const LocaleText('find'),
         ),
         Row (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Icon(_warning == '' ? null : Icons.error_outline, color: Colors.red,),
             Text(
-              warning,
+              _warning,
               style: const TextStyle(fontSize: 15, color: Colors.red),
             ),
           ],
@@ -88,18 +92,23 @@ class _SearchScreen extends State<SearchScreen> {
   }
 }
 
-void searcher(BuildContext context,int classroom, String buildNumb) {
-  String room = setNumbClass(classroom);
+void _searcher(BuildContext context, int classroom, String buildNumb) {
+  String room = _setNumbClass(classroom);
   switch (buildNumb) {
-    case '3бв':
+    case ('3б' || '3бв'):
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ThirdBPage(numberFloor: room)),
+        MaterialPageRoute(builder: (context) => CorpusPage(numberFloor: room, name: '3б')),
+      );
+      break;
+    case '3а':
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => CorpusPage(numberFloor: room, name: '3а')),
       );
       break;
   }
 }
 
-String setNumbClass(int classroom) {
+String _setNumbClass(int classroom) {
   String room = classroom.toString();
   if (room.length == 3) {
     return room[0];
