@@ -13,7 +13,10 @@ class _Loading extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    controller = VideoPlayerController.asset('assets/anim.mp4')
+    controller = VideoPlayerController.asset(
+      'assets/susumap.mp4',
+      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+    )
       ..initialize().then((_) {
         setState(() {
           controller.play();

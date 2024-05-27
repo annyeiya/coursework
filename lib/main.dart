@@ -6,7 +6,7 @@ import 'package:untitled/page/StartPage/StartPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Locales.init(['en', 'ru']);
+  await Locales.init(['ru', 'en']);
   runApp(const MyApp());
 }
 
@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
         builder: (locale) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "SUSU Map",
+          locale: locale,
           localizationsDelegates: Locales.delegates,
           supportedLocales: Locales.supportedLocales,
-          locale: locale,
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
               backgroundColor: Color.fromARGB(255, 200, 155, 250),

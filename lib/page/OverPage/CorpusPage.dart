@@ -78,6 +78,21 @@ class _CorpusPage extends State<CorpusPage> {
               const SizedBox(height: 40.0),
               ImageBuilder(numberFloor: _numberFloor, imageMap: _imageMap, jsonFile: _jsonFile,),
               const SizedBox(height: 40.0),
+              OrientationBuilder(
+                builder: (context, orientation) {
+                  if (MediaQuery.of(context).orientation == Orientation.portrait) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: Image.asset(
+                        'assets/img/легенда_карты.jpg',
+                        fit: BoxFit.fitWidth,
+                      ),
+                    );
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
+              )
             ]
           ),
         ),

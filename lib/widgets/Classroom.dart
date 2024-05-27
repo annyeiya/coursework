@@ -45,7 +45,7 @@ class Classroom {
   }
 
 
-  static Widget classroom(BuildContext context, Classroom cl, {Color color = Colors.transparent}) { //transparent
+  static Widget classroom(BuildContext context, Classroom cl, {Color color = Colors.transparent}) { //transparent //white70
     final theme = MediaQuery.of(context);
     return Positioned(
       left: theme.orientation == Orientation.portrait ? theme.size.shortestSide * cl.left : theme.size.longestSide * cl.left,

@@ -24,21 +24,84 @@
   "1": [],
   "2": [
     {
-      "number": "244",
-      "left": 0.25,
+      "number": "219",
+      "left": 0.36,
+      "top": 0.22,
+      "width": 0.055,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 219"
+    },
+    {
+      "number": "221",
+      "left": 0.415,
+      "top": 0.22,
+      "width": 0.056,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 221"
+    },
+    {
+      "number": "223",
+      "left": 0.471,
+      "top": 0.22,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 223"
+    },
+    {
+      "number": "225",
+      "left": 0.581,
+      "top": 0.22,
+      "width": 0.07,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 225"
+    },
+    {
+      "number": "227",
+      "left": 0.65,
+      "top": 0.22,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 227"
+    },
+    {
+      "number": "229",
+      "left": 0.84,
+      "top": 0.22,
+      "width": 0.055,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 229"
+    },
+    {
+      "number": "240",
+      "left": 0.105,
       "top": 0.32,
-      "width": 0.114,
+      "width": 0.145,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 240"
+    },
+    {
+      "number": "244",
+      "left": 0.255,
+      "top": 0.32,
+      "width": 0.11,
       "height": 0.07,
       "icon" : null,
       "describe": "describe from 244"
     },
     {
       "number": "246",
-      "left": 0.35,
+      "left": 0.363,
       "top": 0.32,
-      "width": 0.061,
+      "width": 0.033,
       "height": 0.07,
-      "icon" : null,
+      "icon" : "laptop",
       "describe": "describe from 246"
     },
     {
@@ -54,7 +117,7 @@
       "number": "250",
       "left": 0.472,
       "top": 0.32,
-      "width": 0.12,
+      "width": 0.11,
       "height": 0.07,
       "icon" : null,
       "describe": "describe from 250"
@@ -72,10 +135,28 @@
       "number": "254",
       "left": 0.647,
       "top": 0.32,
-      "width": 0.12,
+      "width": 0.11,
       "height": 0.07,
       "icon" : null,
       "describe": "describe from 254"
+    },
+    {
+      "number": "256",
+      "left": 0.81,
+      "top": 0.32,
+      "width": 0.11,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 256"
+    },
+    {
+      "number": "258",
+      "left": 0.92,
+      "top": 0.32,
+      "width": 0.06,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 258"
     }
   ],
   "3": [
@@ -168,6 +249,15 @@
       "height": 0.07,
       "icon" : null,
       "describe": "describe from 339"
+    },
+    {
+      "number": "240",
+      "left": 0.105,
+      "top": 0.32,
+      "width": 0.145,
+      "height": 0.07,
+      "icon" : null,
+      "describe": "describe from 240"
     },
     {
       "number": "330",
