@@ -84,7 +84,9 @@ class _CorpusPage extends State<CorpusPage> {
                     return SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: Image.asset(
-                        'assets/img/легенда_карты.jpg',
+                        context.currentLocale?.languageCode == "ru"
+                            ? 'assets/img/легенда_карты_ru.jpg'
+                            : 'assets/img/легенда_карты_en.jpg',
                         fit: BoxFit.fitWidth,
                       ),
                     );
